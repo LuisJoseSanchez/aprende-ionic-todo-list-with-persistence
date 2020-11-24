@@ -11,11 +11,22 @@ import { TasksService } from '../services/tasks.service';
 })
 export class HomePage {
 
+  //tasks: Task[] = [];
+
   constructor(
-    private tasksService: TasksService,
+    public tasksService: TasksService,
     private router: Router,
     private alertController: AlertController
-  ) { }
+  ) {
+    /*
+    this.tasksService.getTasks().then(
+      data => this.tasks = data
+    );*/
+  }
+
+  ngAfterViewInit() {
+    
+  }
 
   goEditTask(id: number) {
     this.router.navigateByUrl(`/edit${id != undefined ? '/' + id : ''}`);
