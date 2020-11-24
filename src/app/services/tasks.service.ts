@@ -36,7 +36,7 @@ export class TasksService {
     return value ? +value : 0;
   }
 
-  public async getTask(id: number) {
+  public getTask(id: number) {
     return { ...this.tasks.filter(t => t.id === id)[0] };
   }
 

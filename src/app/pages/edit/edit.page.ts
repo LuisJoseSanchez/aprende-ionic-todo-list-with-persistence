@@ -21,14 +21,12 @@ export class EditPage implements OnInit {
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id != null) {
-      this.tasksService.getTask(+id).then(
-        data => this.task = data
-      );
+      this.task = this.tasksService.getTask(+id)
     }
   }
 
-  async saveTask() {
-    await this.tasksService.saveTask(this.task);
+  saveTask() {
+    this.tasksService.saveTask(this.task);
     this.router.navigateByUrl('/');
   }
 }
